@@ -507,6 +507,9 @@ def takeWhile (p : α → Bool) : (xs : List α) → List α
    | true  => hd :: takeWhile p tl
    | false => []
 
+@[simp] theorem take_nil : ([] : List α).take i = [] := by
+  cases i <;> rfl
+
 /--
 `O(|l|)`. Applies function `f` to all of the elements of the list, from right to left.
 * `foldr f init [a, b, c] = f a <| f b <| f c <| init`
